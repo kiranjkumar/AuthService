@@ -34,7 +34,7 @@ public class AuthController {
             }
         } catch (UserAlreadyExistsException e) {
             //create a response entity with CONFLICT status
-            signupResponse.setStatus(ResponseStatus.FAILURE);
+            signupResponse.setStatus(ResponseStatus.CONFLICT);
             return new ResponseEntity<>(signupResponse, HttpStatus.CONFLICT);
         } catch (Exception e) {
             //create a response entity with INTERNAL_SERVER_ERROR status
