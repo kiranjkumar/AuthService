@@ -13,10 +13,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
-@Configuration
+//@Configuration
 public class SecurityConfig {
 
-    @Bean
+  //  @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
 

@@ -61,14 +61,11 @@
 			<artifactId>mysql-connector-j</artifactId>
 			<version>8.4.0</version>
 		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.flywaydb/flyway-mysql -->
 		<dependency>
 			<groupId>org.flywaydb</groupId>
 			<artifactId>flyway-mysql</artifactId>
 			<version>11.9.1</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.flywaydb/flyway-core -->
 		<dependency>
 			<groupId>org.flywaydb</groupId>
 			<artifactId>flyway-core</artifactId>
@@ -91,6 +88,11 @@
 			<artifactId>jjwt-jackson</artifactId> <!-- or jjwt-gson if Gson is preferred -->
 			<version>0.12.6</version>
 			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-oauth2-authorization-server</artifactId>
+			<version>1.5.2</version>
 		</dependency>
 	</dependencies>
 

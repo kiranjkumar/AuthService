@@ -21,4 +21,10 @@ public class User extends BaseModel {
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Role> roles;
 
+    //if not fetched eagerly, roles will be null when serializing to JSON , causing issues
+    //also when fetching user, roles should be fetched eagerly to avoid lazy loading issues
+    //but this can cause performance issues if user has many roles
+    //if its lazy loaded, it will be fetched only when accessed that too in one go , in the same trasaction.
+    //cannot access roles outside transaction if lazy loaded.so changing to eager loading
+
 }
