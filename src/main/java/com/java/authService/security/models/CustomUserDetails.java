@@ -1,17 +1,19 @@
 package com.java.authService.security.models;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.java.authService.models.Role;
 import com.java.authService.models.User;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-
+@JsonDeserialize
+@NoArgsConstructor
 public class CustomUserDetails implements UserDetails {
-
-
 
     private String username;
     private String password;

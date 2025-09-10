@@ -61,7 +61,7 @@ public class SecurityConfig {
 					.oidc(Customizer.withDefaults())	// Enable OpenID Connect 1.0
 			)
 			.authorizeHttpRequests((authorize) ->
-				authorize
+				authorize.requestMatchers("/auth/signup").permitAll()
 					.anyRequest().authenticated()
 			)
 			// Redirect to the login page when not authenticated from the
@@ -81,12 +81,12 @@ public class SecurityConfig {
 	public SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http)
 			throws Exception {
 		http
-			.authorizeHttpRequests((authorize) -> authorize
-				.anyRequest().authenticated()
-			)
-			// Form login handles the redirect to the login page from the
-			// authorization server filter chain
-			.formLogin(Customizer.withDefaults());
+				.authorizeHttpRequests(authorize -> authorize
+						.requestMatchers("/auth/signup").permitAll() // ✅ Allow unauthenticated signup
+						.anyRequest().authenticated()
+				)
+				.formLogin(Customizer.withDefaults())
+				.csrf(csrf -> csrf.disable());
 
 		return http.build();
 	}
