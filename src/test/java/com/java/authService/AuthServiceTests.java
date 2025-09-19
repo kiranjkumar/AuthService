@@ -23,14 +23,14 @@ public class AuthServiceTests {
     @Autowired
     private JpaRegisteredClientRepository clientRepository;
 
-    //@Test
+   // @Test
     public void addClient(){
 
 
 
         RegisteredClient oidcClient = RegisteredClient.withId(UUID.randomUUID().toString())
-                .clientId("oidc-client")
-                .clientSecret(bCryptPasswordEncoder.encode("secret"))
+                .clientId("ecom-web")
+                .clientSecret(bCryptPasswordEncoder.encode("password123"))
                 .clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
                 .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
                 .authorizationGrantType(AuthorizationGrantType.REFRESH_TOKEN)
@@ -38,7 +38,9 @@ public class AuthServiceTests {
                 .postLogoutRedirectUri("http://127.0.0.1:8080/")
                 .scope(OidcScopes.OPENID)
                 .scope(OidcScopes.PROFILE)
-                .scope("Email")
+                .scope("products.read")
+                .scope("order.manage")
+                .scope("payment.process")
                 .clientSettings(ClientSettings.builder().requireAuthorizationConsent(true).build())
                 .build();
         clientRepository.save(oidcClient);
